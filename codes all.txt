@@ -1,0 +1,807 @@
+Write a Java program that accepts four integers from the user and prints equal if all four are equal, and not equal otherwise.
+
+
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        // Creating a Scanner object to take input from the user
+        Scanner in = new Scanner(System.in);
+        
+        // Prompting the user to input the first number
+        System.out.print("Input first number: ");
+        int num1 = in.nextInt();
+        
+        // Prompting the user to input the second number
+        System.out.print("Input second number: ");
+        int num2 = in.nextInt();
+        
+        // Prompting the user to input the third number
+        System.out.print("Input third number: ");
+        int num3 = in.nextInt();
+        
+        // Prompting the user to input the fourth number
+        System.out.print("Input fourth number: ");
+        int num4 = in.nextInt();
+        
+        // Checking if all four numbers are equal
+        if (num1 == num2 && num2 == num3 && num3 == num4) {
+            // Printing a message if all numbers are equal
+            System.out.println("Numbers are equal.");
+        } else {
+            // Printing a message if numbers are not all equal
+            System.out.println("Numbers are not equal!");
+        }
+    }
+}
+
+Out:_
+Input first number:  25
+Input second number:  37
+Input third number:  45
+Input fourth number:  23
+Numbers are not equal!
+
+Ass 2 
+Write a  java program to create a class Student2 along with two method getData(), printData() to get the value through argument and display the data in printData. Create the two objects s1, s2 to
+declare and access the values from class STtest
+
+class Student2 {
+    private String name;
+    private int rollNumber;
+    
+    // Method to set data
+    public void getData(String name, int rollNumber) {
+        this.name = name;
+        this.rollNumber = rollNumber;
+    }
+    
+    // Method to print data
+    public void printData() {
+        System.out.println("Name: " + name);
+        System.out.println("Roll Number: " + rollNumber);
+    }
+}
+
+public class STtest {
+    public static void main(String[] args) {
+        // Creating objects of class Student2
+        Student2 s1 = new Student2();
+        Student2 s2 = new Student2();
+        
+        // Setting data for s1
+        s1.getData("John", 101);
+        
+        // Setting data for s2
+        s2.getData("Alice", 102);
+        
+        // Printing data for s1
+        System.out.println("Details of s1:");
+        s1.printData();
+        
+        // Printing data for s2
+        System.out.println("\nDetails of s2:");
+        s2.printData();
+    }
+}
+
+Ass 3:_
+
+Write a java program to create class car, truck and motorcycle which extends the vehicle class (attribute registration_number, color, type of vehicle) with their own attribute like make, CC and fuel type. Input data from the user and print all the details.
+
+
+
+import java.util.Scanner;
+
+class Vehicle {
+    protected String registrationNumber;
+    protected String color;
+    protected String type;
+
+    public void setData(String registrationNumber, String color, String type) {
+        this.registrationNumber = registrationNumber;
+        this.color = color;
+        this.type = type;
+    }
+
+    public void printData() {
+        System.out.println("Registration Number: " + registrationNumber);
+        System.out.println("Color: " + color);
+        System.out.println("Type: " + type);
+    }
+}
+
+class Car extends Vehicle {
+    private String make;
+    private int CC;
+    private String fuelType;
+
+    public void setCarData(String make, int CC, String fuelType) {
+        this.make = make;
+        this.CC = CC;
+        this.fuelType = fuelType;
+    }
+
+    @Override
+    public void printData() {
+        super.printData();
+        System.out.println("Make: " + make);
+        System.out.println("CC: " + CC);
+        System.out.println("Fuel Type: " + fuelType);
+    }
+}
+
+class Truck extends Vehicle {
+    private String make;
+    private int CC;
+    private String fuelType;
+
+    public void setTruckData(String make, int CC, String fuelType) {
+        this.make = make;
+        this.CC = CC;
+        this.fuelType = fuelType;
+    }
+
+    @Override
+    public void printData() {
+        super.printData();
+        System.out.println("Make: " + make);
+        System.out.println("CC: " + CC);
+        System.out.println("Fuel Type: " + fuelType);
+    }
+}
+
+class Motorcycle extends Vehicle {
+    private String make;
+    private int CC;
+    private String fuelType;
+
+    public void setMotorcycleData(String make, int CC, String fuelType) {
+        this.make = make;
+        this.CC = CC;
+        this.fuelType = fuelType;
+    }
+
+    @Override
+    public void printData() {
+        super.printData();
+        System.out.println("Make: " + make);
+        System.out.println("CC: " + CC);
+        System.out.println("Fuel Type: " + fuelType);
+    }
+}
+
+public class VehicleTest {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input for car
+        System.out.println("Enter car details:");
+        Car car = new Car();
+        System.out.print("Registration Number: ");
+        String carRegNumber = scanner.nextLine();
+        System.out.print("Color: ");
+        String carColor = scanner.nextLine();
+        System.out.print("Type: ");
+        String carType = scanner.nextLine();
+        System.out.print("Make: ");
+        String carMake = scanner.nextLine();
+        System.out.print("CC: ");
+        int carCC = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+        System.out.print("Fuel Type: ");
+        String carFuelType = scanner.nextLine();
+        car.setData(carRegNumber, carColor, carType);
+        car.setCarData(carMake, carCC, carFuelType);
+
+        // Input for truck
+        System.out.println("\nEnter truck details:");
+        Truck truck = new Truck();
+        System.out.print("Registration Number: ");
+        String truckRegNumber = scanner.nextLine();
+        System.out.print("Color: ");
+        String truckColor = scanner.nextLine();
+        System.out.print("Type: ");
+        String truckType = scanner.nextLine();
+        System.out.print("Make: ");
+        String truckMake = scanner.nextLine();
+        System.out.print("CC: ");
+        int truckCC = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+        System.out.print("Fuel Type: ");
+        String truckFuelType = scanner.nextLine();
+        truck.setData(truckRegNumber, truckColor, truckType);
+        truck.setTruckData(truckMake, truckCC, truckFuelType);
+
+        // Input for motorcycle
+        System.out.println("\nEnter motorcycle details:");
+        Motorcycle motorcycle = new Motorcycle();
+        System.out.print("Registration Number: ");
+        String bikeRegNumber = scanner.nextLine();
+        System.out.print("Color: ");
+        String bikeColor = scanner.nextLine();
+        System.out.print("Type: ");
+        String bikeType = scanner.nextLine();
+        System.out.print("Make: ");
+        String bikeMake = scanner.nextLine();
+        System.out.print("CC: ");
+        int bikeCC = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+        System.out.print("Fuel Type: ");
+        String bikeFuelType = scanner.nextLine();
+        motorcycle.setData(bikeRegNumber, bikeColor, bikeType);
+        motorcycle.setMotorcycleData(bikeMake, bikeCC, bikeFuelType);
+
+        // Printing details
+        System.out.println("\nCar Details:");
+        car.printData();
+        System.out.println("\nTruck Details:");
+        truck.printData();
+        System.out.println("\nMotorcycle Details:");
+        motorcycle.printData();
+
+        scanner.close();
+    }
+}
+
+Write a java program to create a class Student with data name, city and age use constructor to get data and method printData()to display the data. Create the two objects s1, s2 to declare and access the values.
+
+
+class Student {
+    private String name;
+    private String city;
+    private int age;
+    
+    // Constructor to initialize data
+    public Student(String name, String city, int age) {
+        this.name = name;
+        this.city = city;
+        this.age = age;
+    }
+    
+    // Method to print data
+    public void printData() {
+        System.out.println("Name: " + name);
+        System.out.println("City: " + city);
+        System.out.println("Age: " + age);
+    }
+}
+
+public class StudentTest {
+    public static void main(String[] args) {
+        // Creating objects of class Student
+        Student s1 = new Student("John", "New York", 20);
+        Student s2 = new Student("Alice", "Los Angeles", 22);
+        
+        // Printing data for s1
+        System.out.println("Details of s1:");
+        s1.printData();
+        
+        // Printing data for s2
+        System.out.println("\nDetails of s2:");
+        s2.printData();
+    }
+}
+
+Write a java program to create an abstract class named Shape that contains two integers and an empty method named print Area (). Provide three classes named Rectangle, Triangle and Circle such that each one of the classes extends the class Shape. Each one of the classes contains only the method print Area () that prints the area of the given shape.
+
+
+abstract class Shape {
+    protected int dimension1;
+    protected int dimension2;
+
+    public Shape(int dimension1, int dimension2) {
+        this.dimension1 = dimension1;
+        this.dimension2 = dimension2;
+    }
+
+    // Abstract method to be implemented by subclasses
+    public abstract void printArea();
+}
+
+class Rectangle extends Shape {
+    public Rectangle(int length, int width) {
+        super(length, width);
+    }
+
+    @Override
+    public void printArea() {
+        int area = dimension1 * dimension2;
+        System.out.println("Area of Rectangle: " + area);
+    }
+}
+
+class Triangle extends Shape {
+    public Triangle(int base, int height) {
+        super(base, height);
+    }
+
+    @Override
+    public void printArea() {
+        double area = 0.5 * dimension1 * dimension2;
+        System.out.println("Area of Triangle: " + area);
+    }
+}
+
+class Circle extends Shape {
+    public Circle(int radius) {
+        super(radius, 0); // For Circle, only one dimension is needed
+    }
+
+    @Override
+    public void printArea() {
+        double area = Math.PI * dimension1 * dimension1;
+        System.out.println("Area of Circle: " + area);
+    }
+}
+
+public class ShapeTest {
+    public static void main(String[] args) {
+        Rectangle rectangle = new Rectangle(5, 4);
+        Triangle triangle = new Triangle(3, 6);
+        Circle circle = new Circle(7);
+
+        rectangle.printArea();
+        triangle.printArea();
+        circle.printArea();
+    }
+}
+
+Write a java program that implements a multi-thread application that has three threads. First thread generates a random integer every 1 second and if the value is even, the second thread computes the square of the number and prints. If the value is odd, the third thread will print the value of the cube of the number.
+
+
+import java.util.Random;
+
+class RandomNumberGenerator extends Thread {
+    private volatile boolean running = true;
+
+    @Override
+    public void run() {
+        Random random = new Random();
+        while (running) {
+            try {
+                Thread.sleep(1000); // Sleep for 1 second
+                int randomNumber = random.nextInt(100); // Generate random number between 0 and 99
+                System.out.println("Generated Random Number: " + randomNumber);
+
+                if (randomNumber % 2 == 0) {
+                    synchronized (EvenSquarePrinter.lock) {
+                        EvenSquarePrinter.number = randomNumber;
+                        EvenSquarePrinter.lock.notify();
+                    }
+                } else {
+                    synchronized (OddCubePrinter.lock) {
+                        OddCubePrinter.number = randomNumber;
+                        OddCubePrinter.lock.notify();
+                    }
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void stopThread() {
+        running = false;
+    }
+}
+
+class EvenSquarePrinter extends Thread {
+    static final Object lock = new Object();
+    static volatile int number;
+
+    @Override
+    public void run() {
+        while (true) {
+            synchronized (lock) {
+                try {
+                    lock.wait();
+                    System.out.println("Square of " + number + ": " + (number * number));
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+}
+
+class OddCubePrinter extends Thread {
+    static final Object lock = new Object();
+    static volatile int number;
+
+    @Override
+    public void run() {
+        while (true) {
+            synchronized (lock) {
+                try {
+                    lock.wait();
+                    System.out.println("Cube of " + number + ": " + (number * number * number));
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+}
+
+public class MultiThreadApp {
+    public static void main(String[] args) {
+        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+        EvenSquarePrinter evenSquarePrinter = new EvenSquarePrinter();
+        OddCubePrinter oddCubePrinter = new OddCubePrinter();
+
+        randomNumberGenerator.start();
+        evenSquarePrinter.start();
+        oddCubePrinter.start();
+
+        // Let the threads run for 10 seconds
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Stop the random number generator thread
+        randomNumberGenerator.stopThread();
+    }
+}
+
+Write a java program to create a calculator which performs addition, subtraction and multiplication of numbers for different types like integer, float and complex numbers using single function add(), sub() and multi()
+
+class Calculator {
+    // Addition for integer numbers
+    public int add(int num1, int num2) {
+        return num1 + num2;
+    }
+
+    // Addition for float numbers
+    public float add(float num1, float num2) {
+        return num1 + num2;
+    }
+
+    // Addition for complex numbers
+    public ComplexNumber add(ComplexNumber num1, ComplexNumber num2) {
+        int realPart = num1.getRealPart() + num2.getRealPart();
+        int imaginaryPart = num1.getImaginaryPart() + num2.getImaginaryPart();
+        return new ComplexNumber(realPart, imaginaryPart);
+    }
+
+    // Subtraction for integer numbers
+    public int sub(int num1, int num2) {
+        return num1 - num2;
+    }
+
+    // Subtraction for float numbers
+    public float sub(float num1, float num2) {
+        return num1 - num2;
+    }
+
+    // Subtraction for complex numbers
+    public ComplexNumber sub(ComplexNumber num1, ComplexNumber num2) {
+        int realPart = num1.getRealPart() - num2.getRealPart();
+        int imaginaryPart = num1.getImaginaryPart() - num2.getImaginaryPart();
+        return new ComplexNumber(realPart, imaginaryPart);
+    }
+
+    // Multiplication for integer numbers
+    public int multi(int num1, int num2) {
+        return num1 * num2;
+    }
+
+    // Multiplication for float numbers
+    public float multi(float num1, float num2) {
+        return num1 * num2;
+    }
+
+    // Multiplication for complex numbers
+    public ComplexNumber multi(ComplexNumber num1, ComplexNumber num2) {
+        int realPart = num1.getRealPart() * num2.getRealPart() - num1.getImaginaryPart() * num2.getImaginaryPart();
+        int imaginaryPart = num1.getRealPart() * num2.getImaginaryPart() + num1.getImaginaryPart() * num2.getRealPart();
+        return new ComplexNumber(realPart, imaginaryPart);
+    }
+}
+
+// Class to represent Complex Numbers
+class ComplexNumber {
+    private int realPart;
+    private int imaginaryPart;
+
+    public ComplexNumber(int realPart, int imaginaryPart) {
+        this.realPart = realPart;
+        this.imaginaryPart = imaginaryPart;
+    }
+
+    public int getRealPart() {
+        return realPart;
+    }
+
+    public int getImaginaryPart() {
+        return imaginaryPart;
+    }
+
+    @Override
+    public String toString() {
+        return realPart + " + " + imaginaryPart + "i";
+    }
+}
+
+public class CalculatorTest {
+    public static void main(String[] args) {
+        Calculator calculator = new Calculator();
+
+        // Testing addition
+        System.out.println("Addition:");
+        System.out.println("Integer Addition: " + calculator.add(5, 3));
+        System.out.println("Float Addition: " + calculator.add(5.5f, 3.2f));
+        System.out.println("Complex Number Addition: " + calculator.add(new ComplexNumber(2, 3), new ComplexNumber(4, 5)));
+
+        // Testing subtraction
+        System.out.println("\nSubtraction:");
+        System.out.println("Integer Subtraction: " + calculator.sub(5, 3));
+        System.out.println("Float Subtraction: " + calculator.sub(5.5f, 3.2f));
+        System.out.println("Complex Number Subtraction: " + calculator.sub(new ComplexNumber(8, 9), new ComplexNumber(4, 5)));
+
+        // Testing multiplication
+        System.out.println("\nMultiplication:");
+        System.out.println("Integer Multiplication: " + calculator.multi(5, 3));
+        System.out.println("Float Multiplication: " + calculator.multi(5.5f, 3.2f));
+        System.out.println("Complex Number Multiplication: " + calculator.multi(new ComplexNumber(2, 3), new ComplexNumber(4, 5)));
+    }
+}
+
+Create simple application of Java AWT in which show an awt component button by setting its placement and window frame size.
+
+
+import java.awt.*;
+
+public class AWTButtonExample {
+    public static void main(String[] args) {
+        // Create a Frame
+        Frame frame = new Frame("AWT Button Example");
+
+        // Create a Button
+        Button button = new Button("Click Me");
+
+        // Set Button's Placement and Size
+        button.setBounds(100, 100, 80, 30); // x-coordinate, y-coordinate, width, height
+
+        // Add Button to Frame
+        frame.add(button);
+
+        // Set Frame Size and Layout
+        frame.setSize(300, 200); // width, height
+        frame.setLayout(null); // no layout manager
+
+        // Make the Frame Visible
+        frame.setVisible(true);
+    }
+}
+Create a student table with fields roll number, name, percentage. Insert values in the table. Display all the details of the student table in a tabular format on the screen (using swing).
+
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+
+public class StudentTableGUI extends JFrame {
+    private JTable table;
+
+    public StudentTableGUI() {
+        setTitle("Student Details");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(400, 300);
+
+        // Sample student data
+        Object[][] data = {
+                {1, "Alice", 85.5},
+                {2, "Bob", 78.2},
+                {3, "Charlie", 92.0}
+        };
+
+        // Column names
+        String[] columnNames = {"Roll Number", "Name", "Percentage"};
+
+        // Create a table model
+        DefaultTableModel model = new DefaultTableModel(data, columnNames);
+
+        // Create a table
+        table = new JTable(model);
+
+        // Set table properties
+        table.setPreferredScrollableViewportSize(new Dimension(300, 200));
+        table.setFillsViewportHeight(true);
+
+        // Add table to a scroll pane
+        JScrollPane scrollPane = new JScrollPane(table);
+        getContentPane().add(scrollPane, BorderLayout.CENTER);
+    }
+
+    public static void main(String[] args) {
+        // Run GUI on the Event Dispatch Thread (EDT)
+        SwingUtilities.invokeLater(() -> {
+            StudentTableGUI gui = new StudentTableGUI();
+            gui.setVisible(true);
+        });
+    }
+}
+
+Write a java program that simulates a traffic light. The program lets the user select one of three lights: red, yellow, or green with radio buttons. On selecting a button, an appropriate message with “stop” or “ready” or “go” should appear above the buttons in a selected color. Initially there is no message shown.
+
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class TrafficLightSimulator extends JFrame implements ActionListener {
+    private JLabel messageLabel;
+    private JRadioButton redButton, yellowButton, greenButton;
+
+    public TrafficLightSimulator() {
+        setTitle("Traffic Light Simulator");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(300, 200);
+        setLayout(new FlowLayout());
+
+        // Create radio buttons
+        redButton = new JRadioButton("Red");
+        yellowButton = new JRadioButton("Yellow");
+        greenButton = new JRadioButton("Green");
+
+        // Add action listeners
+        redButton.addActionListener(this);
+        yellowButton.addActionListener(this);
+        greenButton.addActionListener(this);
+
+        // Button group
+        ButtonGroup buttonGroup = new ButtonGroup();
+        buttonGroup.add(redButton);
+        buttonGroup.add(yellowButton);
+        buttonGroup.add(greenButton);
+
+        // Add radio buttons to the frame
+        add(redButton);
+        add(yellowButton);
+        add(greenButton);
+
+        // Add label for message
+        messageLabel = new JLabel("", JLabel.CENTER);
+        messageLabel.setPreferredSize(new Dimension(200, 30));
+        add(messageLabel);
+
+        // Set frame visibility
+        setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String color = "";
+        String message = "";
+        
+        if (e.getSource() == redButton) {
+            color = "Red";
+            message = "Stop";
+        } else if (e.getSource() == yellowButton) {
+            color = "Yellow";
+            message = "Ready";
+        } else if (e.getSource() == greenButton) {
+            color = "Green";
+            message = "Go";
+        }
+        
+        // Set message text and color
+        messageLabel.setText(message);
+        messageLabel.setForeground(getColor(color));
+    }
+
+    private Color getColor(String colorName) {
+        switch (colorName.toLowerCase()) {
+            case "red":
+                return Color.RED;
+            case "yellow":
+                return Color.YELLOW;
+            case "green":
+                return Color.GREEN;
+            default:
+                return Color.BLACK;
+        }
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new TrafficLightSimulator());
+    }
+}
+
+Write a java program that connects to a database using JDBC and does add, deletes, modify, and retrieve operations.
+import java.sql.*;
+
+public class JDBCExample {
+    static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
+    static final String DB_URL = "jdbc:mysql://localhost/your_database_name"; // Change 'your_database_name' to your database name
+    static final String USER = "your_username"; // Change 'your_username' to your MySQL username
+    static final String PASS = "your_password"; // Change 'your_password' to your MySQL password
+
+    public static void main(String[] args) {
+        Connection conn = null;
+        Statement stmt = null;
+
+        try {
+            // Register JDBC driver
+            Class.forName(JDBC_DRIVER);
+
+            // Open a connection
+            System.out.println("Connecting to database...");
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+            // Execute a query to create table
+            System.out.println("Creating table...");
+            stmt = conn.createStatement();
+            String sql = "CREATE TABLE Students " +
+                    "(id INTEGER not NULL AUTO_INCREMENT, " +
+                    " name VARCHAR(255), " +
+                    " age INTEGER, " +
+                    " PRIMARY KEY ( id ))";
+            stmt.executeUpdate(sql);
+            System.out.println("Table created successfully...");
+
+            // Inserting data
+            System.out.println("Inserting records into the table...");
+            sql = "INSERT INTO Students (name, age) VALUES ('John', 25)";
+            stmt.executeUpdate(sql);
+            sql = "INSERT INTO Students (name, age) VALUES ('Alice', 22)";
+            stmt.executeUpdate(sql);
+            System.out.println("Records inserted successfully...");
+
+            // Retrieving data
+            System.out.println("Retrieving data from the table...");
+            sql = "SELECT id, name, age FROM Students";
+            ResultSet rs = stmt.executeQuery(sql);
+
+            // Displaying data
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                int age = rs.getInt("age");
+
+                System.out.print("ID: " + id);
+                System.out.print(", Name: " + name);
+                System.out.println(", Age: " + age);
+            }
+            rs.close();
+
+            // Updating data
+            System.out.println("Updating data...");
+            sql = "UPDATE Students SET age = 30 WHERE name='John'";
+            stmt.executeUpdate(sql);
+            System.out.println("Data updated successfully...");
+
+            // Deleting data
+            System.out.println("Deleting data...");
+            sql = "DELETE FROM Students WHERE name='Alice'";
+            stmt.executeUpdate(sql);
+            System.out.println("Data deleted successfully...");
+
+            // Clean-up environment
+            stmt.close();
+            conn.close();
+        } catch (SQLException se) {
+            // Handle errors for JDBC
+            se.printStackTrace();
+        } catch (Exception e) {
+            // Handle errors for Class.forName
+            e.printStackTrace();
+        } finally {
+            // Finally block used to close resources
+            try {
+                if (stmt != null) stmt.close();
+            } catch (SQLException se2) {
+            }
+            try {
+                if (conn != null) conn.close();
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
+        }
+        System.out.println("Goodbye!");
+    }
+}
